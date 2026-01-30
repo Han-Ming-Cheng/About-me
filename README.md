@@ -31,7 +31,7 @@
 
 * **自動化 ETL 管線**：實作模組化的 Data Fetcher，自動串接 `yfinance` API 進行資料清洗、容錯處理與格式標準化。
 * **RAG 與上下文注入**：將計算後的技術指標 (RSI, MA) 與財務數據 (P/E, EPS) 轉化為結構化 Prompt，結合 **Google Gemini** 模型進行即時財報解讀與風險評估。
-* **AI 護欄機制 (Guardrails)**：設計 `review_question` 邏輯層，有效過濾非財經相關問題並防止 AI 幻覺，確保回應的專業度與安全性。
+* **AI 維護機制 (Guardrails)**：設計 `review_question` 邏輯層，有效過濾非財經相關問題並防止 AI 幻覺，確保回應的專業度與安全性。
 * **客製化互動圖表**：透過 Streamlit 注入 JavaScript，實作 Plotly 進階繪圖功能（如畫線分析、Undo/Redo），突破原生套件限制。
 * 🔗 [Demo](https://stock-ai-app-c6evappbapgfta6oozgqfx.streamlit.app/)
 ---
@@ -43,8 +43,8 @@
 * **深度學習架構**：實作 **Wide & Deep CNN** 模型，同時捕捉全域特徵與局部週期性特徵，有效識別異常波形。
 * **極度不平衡資料處理**：針對竊電樣本稀缺（約 10:1）的問題，應用 **SMOTE** 與 **Random Under Bagging** 技術平衡樣本，大幅提升模型敏感度。
 * **量化成果**：
-    * [cite_start]**Wide & Deep CNN** 達到 **AUC 0.81**，**MAP@100 (前100名命中率) 達 91%** [cite: 311]。
-    * [cite_start]**CBLOF (分群異常因子)** 模型在 **MAP@50 達到 98%** [cite: 511]，能精準鎖定高風險用戶供稽查優先參考。
+    * **Wide & Deep CNN** 達到 **AUC 0.81**，**MAP@100 (前100名命中率) 達 91%** 。
+    * **CBLOF (分群異常因子)** 模型在 **MAP@50 達到 98%** ，能精準鎖定高風險用戶供稽查優先參考。
 * **系統落地**：整合 Hugging Face Spaces 實作 Web 介面，提供可視化的即時檢測服務。
 * 🔗 [Demo](https://huggingface.co/spaces/peter572210355/demo_steal_electricity_detec)
 
@@ -55,7 +55,7 @@
 > 協助製造業客戶透過數據分析優化製程參數，解決良率不穩定問題。
 
 * **實驗設計 (DOE)**：深入產線進行因子篩選，利用統計檢定 (T-test) 與決策樹分析，找出影響點膠品質的關鍵參數。
-* [cite_start]**商業影響**：根據分析結果提出製程參數調整建議，成功協助廠商**提升產品良率約 18%** [cite: 40, 145]。
+* **商業影響**：根據分析結果提出製程參數調整建議，成功協助廠商**提升產品良率約 18%** 。
 * **溝通協作**：擔任技術團隊與廠務端的溝通橋樑，將複雜的統計結果轉化為可執行的現場操作建議。
 
 ---
@@ -64,9 +64,9 @@
 **`Machine Learning`** **`SMOTE`** **`Logistic Regression`** **`PCA`**
 > 針對百萬筆醫療數據進行風險因子鑑別，解決醫療資料的類別不平衡難題。
 
-* [cite_start]**特徵工程**：利用 **VIF (變異數膨脹因子)** 與 **PCA (主成分分析)** 處理多重共線性問題，篩選出住院類型與年齡為關鍵風險因子 [cite: 901, 924]。
-* [cite_start]**模型優化**：原始模型對死亡樣本召回率僅 18%，經由 **SMOTE** 技術處理後，將**召回率 (Recall) 提升至 95%** [cite: 1295]，顯著降低漏判高風險病患的機率。
-* [cite_start]**可解釋性 AI**：透過邏輯斯迴歸係數分析，量化各變數（如住院、性別、共病）對死亡風險的具體影響倍率 [cite: 885]。
+* **特徵工程**：利用 **VIF (變異數膨脹因子)** 與 **PCA (主成分分析)** 處理多重共線性問題，篩選出住院類型與年齡為關鍵風險因子 。
+* **模型優化**：原始模型對死亡樣本召回率僅 18%，經由 **SMOTE** 技術處理後，將**召回率 (Recall) 提升至 95%** ，顯著降低漏判高風險病患的機率。
+* **可解釋性 AI**：透過邏輯斯迴歸係數分析，量化各變數（如住院、性別、共病）對死亡風險的具體影響倍率 。
 
 ---
 
@@ -74,9 +74,9 @@
 **`Linear Mixed Models`** **`Profile Monitoring`** **`Algorithm Implementation`**
 > 解決傳統 SPC 無法處理非等距時間序列 (Irregular Time-Series) 的痛點。
 
-* [cite_start]**演算法開發**：自主開發基於 **Iterative GLS (迭代廣義最小平方)** 與 **BLUP** 的動態參數估計演算法 [cite: 26]。
+* **演算法開發**：自主開發基於 **Iterative GLS (迭代廣義最小平方)** 與 **BLUP** 的動態參數估計演算法 。
 * **監控優化**：設計整合 CUSUM 與 EWMA 的高階控制圖架構，針對高維度輪廓資料進行監控。
-* [cite_start]**模擬驗證**：建置 **Monte Carlo 模擬**環境，證實新方法在微小製程偏移 (Small Shift) 的偵測能力顯著優於傳統方法 [cite: 24]。
+* **模擬驗證**：建置 **Monte Carlo 模擬**環境，證實新方法在微小製程偏移 (Small Shift) 的偵測能力顯著優於傳統方法 。
 
 ---
 
@@ -116,8 +116,8 @@ I am passionate about data analysis and problem-solving, with a strong backgroun
 **`Python`** **`Streamlit`** **`Google Gemini API`** **`ETL`**
 > A full-stack data application integrating GenAI to automate financial report analysis and provide interactive technical insights.
 
-* [cite_start]**Automated ETL Pipeline**: Implemented a modular Data Fetcher to automate data cleaning, error handling, and format standardization using the `yfinance` API[cite: 98, 138].
-* [cite_start]**RAG & Context Injection**: Transformed calculated technical indicators (RSI, MA) and financial data (P/E, EPS) into structured prompts, integrated with **Google Gemini** for real-time interpretation and risk assessment[cite: 98, 138].
+* **Automated ETL Pipeline**: Implemented a modular Data Fetcher to automate data cleaning, error handling, and format standardization using the `yfinance` API.
+* **RAG & Context Injection**: Transformed calculated technical indicators (RSI, MA) and financial data (P/E, EPS) into structured prompts, integrated with **Google Gemini** for real-time interpretation and risk assessment.
 * **AI Guardrails**: Designed a `review_question` logic layer to effectively filter non-financial queries and prevent AI hallucinations, ensuring professional and safe responses (Analysis of `ai_analyzer.py`).
 * **Custom Interactive Charts**: Injected JavaScript via Streamlit to implement advanced Plotly drawing features (e.g., trendline drawing, Undo/Redo), overcoming native library limitations (Analysis of `app.py`).
 * 🔗 [Demo](https://stock-ai-app-c6evappbapgfta6oozgqfx.streamlit.app/)
@@ -127,12 +127,12 @@ I am passionate about data analysis and problem-solving, with a strong backgroun
 **`PyTorch`** **`Wide & Deep CNN`** **`Anomaly Detection`** **`Hugging Face`**
 > An end-to-end anomaly detection pipeline built for massive electricity usage data from over 42,000 users.
 
-* [cite_start]**Deep Learning Architecture**: Implemented a **Wide & Deep CNN** model to capture both global features and local periodic patterns, effectively identifying abnormal usage waveforms[cite: 69].
-* [cite_start]**Imbalanced Data Handling**: Applied **SMOTE** and **Random Under Bagging** techniques to address the extreme scarcity of theft samples (approx. 10:1 ratio), significantly improving model sensitivity[cite: 67, 475].
+* **Deep Learning Architecture**: Implemented a **Wide & Deep CNN** model to capture both global features and local periodic patterns, effectively identifying abnormal usage waveforms.
+* **Imbalanced Data Handling**: Applied **SMOTE** and **Random Under Bagging** techniques to address the extreme scarcity of theft samples (approx. 10:1 ratio), significantly improving model sensitivity.
 * **Quantitative Results**:
-    * [cite_start]**Wide & Deep CNN** achieved an **AUC of 0.81** and a **MAP@100 (Precision at 100) of 91%**[cite: 309, 311].
-    * [cite_start]**CBLOF (Cluster-based Local Outlier Factor)** model reached a **MAP@50 of 98%**, precisely targeting high-risk users for priority inspection[cite: 511].
-* [cite_start]**System Deployment**: Integrated Hugging Face Spaces to deploy a web-based interface for real-time detection services[cite: 72].
+    * **Wide & Deep CNN** achieved an **AUC of 0.81** and a **MAP@100 (Precision at 100) of 91%**.
+    * **CBLOF (Cluster-based Local Outlier Factor)** model reached a **MAP@50 of 98%**, precisely targeting high-risk users for priority inspection.
+* **System Deployment**: Integrated Hugging Face Spaces to deploy a web-based interface for real-time detection services.
 * 🔗 [Hugging Face Demo](https://huggingface.co/spaces/peter572210355/demo_steal_electricity_detect)
 
 ---
@@ -141,9 +141,9 @@ I am passionate about data analysis and problem-solving, with a strong backgroun
 **`Design of Experiments (DOE)`** **`Decision Trees`** **`Root Cause Analysis`**
 > Collaborated with ATEC Electronics to optimize manufacturing process parameters and resolve yield instability issues.
 
-* [cite_start]**Design of Experiments (DOE)**: Conducted factor screening on the production line, utilizing statistical tests (T-test) and decision tree analysis to identify key parameters affecting dispensing quality[cite: 32, 38].
-* [cite_start]**Business Impact**: Proposed process parameter adjustments based on analysis results, successfully helping the client **increase product yield by approximately 18%**[cite: 40].
-* [cite_start]**Communication & Collaboration**: Served as the bridge between the technical team and factory operations, translating complex statistical results into actionable operational recommendations[cite: 136].
+* **Design of Experiments (DOE)**: Conducted factor screening on the production line, utilizing statistical tests (T-test) and decision tree analysis to identify key parameters affecting dispensing quality.
+* **Business Impact**: Proposed process parameter adjustments based on analysis results, successfully helping the client **increase product yield by approximately 18%**.
+* **Communication & Collaboration**: Served as the bridge between the technical team and factory operations, translating complex statistical results into actionable operational recommendations.
 
 ---
 
@@ -151,9 +151,9 @@ I am passionate about data analysis and problem-solving, with a strong backgroun
 **`Machine Learning`** **`SMOTE`** **`Logistic Regression`** **`PCA`**
 > Analyzed over one million healthcare records to identify risk factors, solving the challenge of class imbalance in medical data.
 
-* [cite_start]**Feature Engineering**: Utilized **VIF (Variance Inflation Factor)** and **PCA (Principal Component Analysis)** to handle multicollinearity, identifying patient type (hospitalization) and age as critical risk factors[cite: 901, 922].
-* **Model Optimization**: Addressed the issue where the original model had a recall of only 18% for mortality cases. [cite_start]By implementing **SMOTE**, the **Recall was boosted to 95%**, significantly reducing the chance of missing high-risk patients[cite: 1295].
-* [cite_start]**Explainable AI**: Quantified the specific impact of variables (e.g., hospitalization, gender, comorbidities) on mortality risk using Logistic Regression coefficients[cite: 852].
+* **Feature Engineering**: Utilized **VIF (Variance Inflation Factor)** and **PCA (Principal Component Analysis)** to handle multicollinearity, identifying patient type (hospitalization) and age as critical risk factors.
+* **Model Optimization**: Addressed the issue where the original model had a recall of only 18% for mortality cases. By implementing **SMOTE**, the **Recall was boosted to 95%**, significantly reducing the chance of missing high-risk patients.
+* **Explainable AI**: Quantified the specific impact of variables (e.g., hospitalization, gender, comorbidities) on mortality risk using Logistic Regression coefficients.
 
 ---
 
@@ -161,9 +161,9 @@ I am passionate about data analysis and problem-solving, with a strong backgroun
 **`Linear Mixed Models`** **`Profile Monitoring`** **`Algorithm Implementation`**
 > Solved the limitation of traditional SPC in handling irregular time-series profile data.
 
-* [cite_start]**Algorithm Development**: Independently developed a dynamic parameter estimation algorithm based on **Iterative GLS (Generalized Least Squares)** and **BLUP (Best Linear Unbiased Prediction)**[cite: 26].
-* [cite_start]**Monitoring Optimization**: Designed an advanced control chart architecture integrating **CUSUM** and **EWMA** to monitor high-dimensional profile data[cite: 71].
-* [cite_start]**Simulation & Validation**: Built a **Monte Carlo simulation** environment to prove that the proposed method significantly outperforms traditional methods in detecting **small process shifts**[cite: 24, 110].
+* **Algorithm Development**: Independently developed a dynamic parameter estimation algorithm based on **Iterative GLS (Generalized Least Squares)** and **BLUP (Best Linear Unbiased Prediction)**.
+* **Monitoring Optimization**: Designed an advanced control chart architecture integrating **CUSUM** and **EWMA** to monitor high-dimensional profile data.
+* **Simulation & Validation**: Built a **Monte Carlo simulation** environment to prove that the proposed method significantly outperforms traditional methods in detecting **small process shifts**.
 
 ---
 
